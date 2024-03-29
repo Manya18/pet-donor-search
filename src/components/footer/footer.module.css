@@ -1,0 +1,36 @@
+.footer  {
+    background-color: #EED6D6;
+}
+
+.footer__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0;
+    box-sizing: border-box;
+
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hr {
+    opacity: 0.5;
+    border: 1px solid var(--primaryTextColor);
+}
+
+.footer__rights, .footer__rights a {
+    color: var(--darkTextColor);
+}
+
+.contacts__group {
+    display: flex;
+    column-gap: 35px;
+}
+
+.contact {
+    width: 50px;
+    height: 50px;
+}

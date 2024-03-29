@@ -1,4 +1,15 @@
+:root {
+  --backgroundColor: #F5EDED;
+  --primaryTextColor: #9D0B0B;
+  --secondaryTextColor: #B13C3C;
+  --darkTextColor: #5F4A4A;
+  --primaryFont: 'Poppins', sans-serif;
+  --secondaryFont: 'Inter', sans-serif;
+  --publicSansFont: 'Public Sans', sans-serif;
+}
+
 body {
   margin: 0;
-  background-color: #F5EDED;
+  background-color: var(--backgroundColor);
 }
+

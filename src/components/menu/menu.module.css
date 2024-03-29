@@ -1,0 +1,18 @@
+.menu {
+}
+
+.menu__list {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  list-style-type: none;
+}
+
+.menu__item a {
+  color: var(--darkTextColor);
+  text-decoration: none;
+}
+
+.menu__item a:hover {
+    color: var(--primaryTextColor);
+}

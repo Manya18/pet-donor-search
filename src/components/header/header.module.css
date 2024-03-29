@@ -1,0 +1,22 @@
+.header {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__profile {
+}
+
+.header__profile__button {
+  border: none;
+}
+
+.hr {
+    opacity: 0.5;
+    border: 1px solid var(--primaryTextColor);
+}
