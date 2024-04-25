@@ -1,0 +1,44 @@
+.advice {
+    max-width: 300px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.advice__head {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.advice__author {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.author__img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.author__name {
+    font-family: var(--primaryFont);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.advice__date {
+    font-family: var(--primaryFont);
+    font-size: 13px;
+    color: var(--darkTextColor);
+}
+
+.advice__text {
+    font-family: var(--secondaryFont);
+    font-size: 15px;
+    color: var(--darkTextColor);
+}

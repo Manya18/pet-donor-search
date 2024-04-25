@@ -1,0 +1,6 @@
+.slider__header {
+    font-family: var(--secondaryFont);
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--primaryTextColor);
+}
