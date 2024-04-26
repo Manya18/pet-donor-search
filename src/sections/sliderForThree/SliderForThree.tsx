@@ -1,14 +1,16 @@
-import React from "react";
-import Advice from "../../components/advice/Advice";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styles from "./adviceSlider.module.css";
+import styles from "./sliderForThree.module.css";
 
-const AdviceSlider = () => {
-  const items = [<Advice />, <Advice />, <Advice />, <Advice />];
+interface sliderForThreeProps {
+  elems: JSX.Element[];
+  title: string;
+}
+
+const SliderForThree = (props: sliderForThreeProps) => {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -29,17 +31,19 @@ const AdviceSlider = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,
+          infinite: true,
+          dots: true,
         },
       },
     ],
   };
   return (
     <div>
-      <h1 className={styles.slider__header}>Советы от доноров</h1>
+      <h1 className={styles.slider__header}>{props.title}</h1>
       <Slider {...settings}>
-        {items.map((item, index) => (
+        {props.elems.map((elem, index) => (
           <div key={index} className={styles.slide}>
-            {item}
+            {elem}
           </div>
         ))}
       </Slider>
@@ -47,4 +51,4 @@ const AdviceSlider = () => {
   );
 };
 
-export default AdviceSlider;
+export default SliderForThree;

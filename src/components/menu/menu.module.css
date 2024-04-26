@@ -11,6 +11,7 @@
 .menu__item a {
   color: var(--darkTextColor);
   text-decoration: none;
+  font-family: var(--secondaryFont);
 }
 
 .menu__item a:hover {
