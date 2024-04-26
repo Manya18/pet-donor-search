@@ -1,0 +1,78 @@
+* {
+    color: var(--darkTextColor);
+}
+
+.event__card {
+  max-width: 400px;
+  background-color: #fff;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 30px;
+}
+
+.event__datestamp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.event__date {
+  font-family: var(--primaryFont);
+  font-size: 16px;
+  color: var(--darkTextColor);
+}
+
+.event__time {
+  font-family: var(--primaryFont);
+  font-size: 16px;
+  color: #7a6161;
+}
+
+.event_content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.event__title {
+  font-family: var(--primaryFont);
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+  margin: 15px 0;
+}
+
+.event__goal {
+  font-family: var(--primaryFont);
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.event__org {
+  font-family: var(--primaryFont);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.event__location {
+  display: flex;
+  gap: 10px;
+}
+
+.event__address {
+  font-family: var(--primaryFont);
+  font-size: 15px;
+}
+
+.event__signup {
+  font-family: var(--primaryFont);
+  font-size: 22px;
+  width: 100%;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 15px;
+}

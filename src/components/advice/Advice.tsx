@@ -4,8 +4,8 @@ import styles from "./advice.module.css";
 
 const Advice = (props: AdviceType) => {
 
-
   if (!props.admin_accept) return <></>;
+  
   return (
     <div key={props.id} className={styles.advice}>
       <div className={styles.advice__head}>

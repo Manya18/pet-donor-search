@@ -1,3 +1,7 @@
+.slider_wrapper {
+    padding: 100px 0;
+}
+
 .slider__header {
     font-family: var(--secondaryFont);
     font-size: 36px;
