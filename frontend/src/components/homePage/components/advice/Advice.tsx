@@ -1,4 +1,4 @@
-import logo from "@images/logo.png";
+import logo from "../../../../images/logo.png";
 import { AdviceType } from "../../../../types/AdviceType";
 import styles from "./advice.module.css";
 

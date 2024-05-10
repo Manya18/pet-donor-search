@@ -1,5 +1,5 @@
 import styles from "./newsCard.module.css";
-import newsImg from "@images/newsImg.jpg";
+import newsImg from "../../../images/newsImg.jpg";
 import { NewsType } from "../../../types/NewsType";
 
 const NewsCard = (props: NewsType) => {

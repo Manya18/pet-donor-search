@@ -1,6 +1,6 @@
-import SliderForThree from "@layouts/sliderForThree/SliderForThree";
+import SliderForThree from "../../../layouts/sliderForThree/SliderForThree";
 import { SliderType } from "../../../../types/sliderType";
-import EventCard from "@common/eventCard/EventCard";
+import EventCard from "../../../common/eventCard/EventCard";
 
 const EventSliderAPI = () => {
   const data = [

@@ -1,7 +1,7 @@
-import Logo from "@common/logo/Logo";
-import profile from "@images/profile.png";
+import Logo from "../logo/Logo";
+import profile from "../../../images/profile.png";
 import styles from "./header.module.css";
-import Menu from "@common/menu/Menu";
+import Menu from "../menu/Menu";
 
 const Header = () => {
   return (

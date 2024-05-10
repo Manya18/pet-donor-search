@@ -1,6 +1,6 @@
-import SliderForThree from "@layouts/sliderForThree/SliderForThree";
+import SliderForThree from "../../../layouts/sliderForThree/SliderForThree";
 import { SliderType } from "../../../../types/sliderType";
-import Advice from "@components/homePage/components/advice/Advice";
+import Advice from "../advice/Advice";
 
 const AdviceSlider = () => {
   const data = [
