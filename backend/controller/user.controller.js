@@ -19,6 +19,11 @@ class UserController {
         const user = await db.query(`DELETE FROM Users WHERE id = $1 RETURNING *;`, [id]);
         res.json(user.rows[0]);
     }
+    async getUserID(req, res) {
+        const {email, password} = req.body;
+        const userID = await db.query(`SELECT id FROM Users WHERE email = $1 and password = $2`, [email, password]);
+        res.json(userID.rows[0]);
+    }
 }
 
 module.exports = new UserController();
