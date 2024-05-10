@@ -5,7 +5,7 @@ const Menu = () => {
     <nav className={styles.menu}>
       <ul className={styles.menu__list}>
         <li className={styles.menu__item}>
-          <a href="#">Объявления</a>
+          <a href="/announcements">Объявления</a>
         </li>
         <li className={styles.menu__item}>
           <a href="#">Информация</a>

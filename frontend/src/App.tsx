@@ -1,17 +1,18 @@
 import React from "react";
 import styles from "./App.module.css";
-import Header from "./components/common/header/Header";
-import Footer from "./components/common/footer/Footer";
-import HomePage from "./components/homePage/HomePage";
+import HomePage from "pages/homePage/HomePage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AnnouncePage from "pages/announcePage/AnnouncePage";
 
 function App() {
   return (
     <div className={styles.app}>
-      <div className={styles.content}>
-        <Header />
-        <HomePage />
-      </div>
-      <Footer />
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/announcements" element={<AnnouncePage />} />
+      </Routes>
+    </BrowserRouter>
     </div>
   );
 }
