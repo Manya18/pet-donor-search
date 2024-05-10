@@ -1,5 +1,5 @@
-import logo from "../../images/vk.png";
-import { AdviceType } from "../../types/AdviceType";
+import logo from "@images/logo.png";
+import { AdviceType } from "../../../../types/AdviceType";
 import styles from "./advice.module.css";
 
 const Advice = (props: AdviceType) => {

@@ -1,4 +1,4 @@
-import { EventType } from "../../types/EventType";
+import { EventType } from "../../../types/EventType";
 import styles from "./eventCard.module.css";
 import PlaceIcon from "@mui/icons-material/Place";
 import Diversity1Icon from "@mui/icons-material/Diversity1";

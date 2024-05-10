@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./sliderForThree.module.css";
-import { SliderType } from "../../types/sliderType";
+import { SliderType } from "../../../types/sliderType";
 
 const SliderForThree = (props: SliderType) => {
   const settings = {

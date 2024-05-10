@@ -1,7 +1,7 @@
-import Logo from "../logo/Logo";
-import Menu from "../menu/Menu";
-import vk from "../../images/vk.png";
-import tg from "../../images/tg.png";
+import Logo from "@common/logo/Logo";
+import Menu from "@common/menu/Menu";
+import vk from "@images/vk.png";
+import tg from "@images/tg.png";
 import styles from "./footer.module.css";
 
 const Footer = () => {

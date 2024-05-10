@@ -1,5 +1,14 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@pages/*": ["components/pages/*"],
+      "@images/*": ["images/*"],
+      "@common/*": ["components/common/*"],
+      "@layouts/*": ["components/layouts/*"],
+      "@types/*": ["types/*"],
+    },
     "target": "es5",
     "lib": [
       "dom",

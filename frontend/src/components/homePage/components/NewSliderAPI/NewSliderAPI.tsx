@@ -1,6 +1,6 @@
-import SliderForThree from "../../../sections/sliderForThree/SliderForThree";
-import { SliderType } from "../../../types/sliderType";
-import NewsCard from "../../newsCard/NewsCard";
+import SliderForThree from "@layouts/sliderForThree/SliderForThree";
+import { SliderType } from "../../../../types/sliderType";
+import NewsCard from "@common/newsCard/NewsCard";
 
 const NewSlider = () => {
   const data = [

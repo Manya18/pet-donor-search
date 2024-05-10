@@ -1,6 +1,6 @@
-import AdviceSlider from "../../components/sliders/AdviceSliderAPI/AdviceSliderAPI";
-import EventSliderAPI from "../../components/sliders/EventSliderAPI/EventSliderAPI";
-import NewSlider from "../../components/sliders/NewSliderAPI/NewSliderAPI";
+import AdviceSlider from "./components/AdviceSliderAPI/AdviceSliderAPI";
+import EventSliderAPI from "./components/EventSliderAPI/EventSliderAPI";
+import NewSlider from "./components/NewSliderAPI/NewSliderAPI";
 import styles from "./homePage.module.css";
 
 const HomePage = () => {
