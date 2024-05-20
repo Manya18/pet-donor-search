@@ -1,0 +1,92 @@
+.startForm {
+    width: 450px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.propButton {
+    padding: 10px;
+    font-family: var(--secondaryFont);
+    font-size: 14px;
+    color: var(--primaryTextColor);
+    background-color: white;
+    border: 0px;
+    border-radius: 10px;
+}
+
+.propButton:hover {
+    padding: 10px;
+    font-family: var(--secondaryFont);
+    color: var(--primaryTextColor);
+    background-color: rgb(233, 220, 220);
+    border: 0px;
+}
+
+.propButton:focus {
+    padding: 10px;
+    font-family: var(--secondaryFont);
+    color: var(--primaryTextColor);
+    font-weight: bold;
+    border: 0px;
+}
+
+h1 {
+    font-family: var(--secondaryFont);
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--primaryTextColor);
+}
+
+form {
+    text-align: center;
+}
+
+label {
+    font-family: var(--secondaryFont);
+    color: var(--primaryTextColor);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 10px;
+}
+
+input {
+    font-family: var(--secondaryFont);
+    font-size: 18px;
+    padding: 10px;
+}
+
+.authoButton {
+    font-family: var(--secondaryFont);
+    color: white;
+    font-size: 15px;
+    background-color: var(--primaryTextColor);
+    border: 0px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.authoButton:hover {
+    font-family: var(--secondaryFont);
+    color: white;
+    font-size: 15px;
+    background-color: #5c0000;
+    border: 0px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.info {
+    margin: 20px;
+}

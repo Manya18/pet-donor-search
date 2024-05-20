@@ -11,7 +11,9 @@ const Header = () => {
         <Menu />
         <div className={styles.header__profile}>
           <button className={styles.header__profile__button}>
-            <img src={profile} alt="profile"></img>
+            <a href="/start">
+              <img src={profile} alt="profile"></img>
+            </a>
           </button>
         </div>
       </div>
