@@ -22,13 +22,12 @@ function Login() {
             if(!response.ok) {
                 emailField.style.border = "2px solid red";
                 passwordField.style.border = "2px solid red";
-                const err = document.getElementById("error") as HTMLLabelElement;
+                const err = document.getElementById("error") as HTMLDivElement;
                 err.hidden = false;
             }
             else {
-                let id;
                 response.json().then(res => {
-                    id = res.id;
+                    sessionStorage.setItem('userID', `${res.id}`);
                 });
                 window.location.href='/';
             }

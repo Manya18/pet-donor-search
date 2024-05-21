@@ -22,15 +22,18 @@ function Registartion() {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(data)
-                })
+                });
                 if(!response.ok) {
                     emailField.style.border = '2px solid red';
                     passwordField.style.border = '2px solid red';
                     againPasswordField.style.border = '2px solid red';
-                    const err = document.getElementById("error") as HTMLLabelElement;
+                    const err = document.getElementById("error") as HTMLDivElement;
                     err.hidden = false;
                 }
                 else {
+                    response.json().then(res => {
+                        sessionStorage.setItem('userID', `${res.id}`);
+                    });
                     window.location.href='/';
                 }
             } catch (e) {
@@ -41,7 +44,7 @@ function Registartion() {
             emailField.style.border = '2px solid red';
             passwordField.style.border = '2px solid red';
             againPasswordField.style.border = '2px solid red';
-            const err = document.getElementById("error") as HTMLLabelElement;
+            const err = document.getElementById("error") as HTMLDivElement;
             err.hidden = false;
         }
     }
