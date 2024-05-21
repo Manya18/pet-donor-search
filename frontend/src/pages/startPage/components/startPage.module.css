@@ -90,3 +90,9 @@ input {
 .info {
     margin: 20px;
 }
+
+.error {
+    font-family: var(--secondaryFont);
+    color: var(--primaryTextColor);
+    font-size: 12px;
+}
