@@ -1,6 +1,8 @@
 import SliderForThree from "../../../layouts/sliderForThree/SliderForThree";
 import { SliderType } from "../../../../types/sliderType";
 import Advice from "../advice/Advice";
+import { fetchAdvises } from "../../../../utils/adviseApi";
+import { useEffect, useState } from "react";
 
 const AdviceSlider = () => {
   const data = [
@@ -37,18 +39,29 @@ const AdviceSlider = () => {
       admin_accept: true,
     },
   ];
+  console.log("asas");
+  const [dataSl, setDataSl] = useState([]);
 
+  useEffect(() => {
+    fetchAdvises()
+      .then((response) => {
+        console.log("Fetched advises:", response.data); // Лог ответа сервера
+        setDataSl(response.data); // Предполагаем, что данные находятся в response.data
+      })
+      .catch((error) => {
+        console.error("Error fetching advises:", error); // Лог ошибки
+      });
+  }, []);
+  
   const items = data.map((advice) => <Advice key={advice.id} {...advice} />);
   const title = "Советы от доноров";
 
   const dataToProvide: SliderType = {
     elems: items,
-    title: title
-  }
+    title: title,
+  };
 
-  return (
-    <SliderForThree {...dataToProvide} />
-  );
+  return <SliderForThree {...dataToProvide} />;
 };
 
 export default AdviceSlider;
