@@ -20,28 +20,31 @@ interface CardProps {
 
 const AnimalCard: React.FC<CardProps> = ({ announcement, onClick }) => {
     return (
-        <Card onClick={onClick} style={{ cursor: 'pointer' }}>
-            <CardMedia
-                component="img"
-                height="140"
-                image={announcement.photo}
-                alt={`${announcement.urgency}`}
-            />
-            <CardContent>
-                <Typography variant="h5" component="div">
-                    {announcement.urgency}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    Тип животного: {announcement.animalType}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    Группа крови: {announcement.bloodType}
-                </Typography>
-                {/* <Typography variant="body2" color="text.secondary">
+        <div style={{ marginBottom: '3vh', marginTop: '3vh', marginLeft: '1vw' }}>
+            <Card onClick={onClick} style={{ cursor: 'pointer', width: '17vw' }}>
+                <CardMedia
+                    component="img"
+                    height="150"
+                    width="200"
+                    image={announcement.photo}
+                    alt={`${announcement.urgency}`}
+                />
+                <CardContent>
+                    <Typography variant="h5" component="div">
+                        {announcement.urgency}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        Тип животного: {announcement.animalType}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        Группа крови: {announcement.bloodType}
+                    </Typography>
+                    {/* <Typography variant="body2" color="text.secondary">
                     Организация: {announcement.organization}
                 </Typography> */}
-            </CardContent>
-        </Card>
+                </CardContent>
+            </Card>
+        </div>
     );
 };
 

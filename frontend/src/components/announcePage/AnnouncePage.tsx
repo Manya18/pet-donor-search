@@ -32,6 +32,28 @@ const AnnouncePage: React.FC = () => {
             description: 'Болеет((',
             photo: 'https://i.pinimg.com/originals/6c/8e/56/6c8e5666bcde85152b1c73f8be8e3ef2.jpg'
         },
+        {
+            id: 2,
+            animalType: 'Собака',
+            urgency: 'Шарик',
+            bloodType: 'A+',
+            organization: 'Вет Гуффи',
+            address: ' ул. Карла Маркса, 316, Ижевск',
+            workingHours: '9:00 - 18:00',
+            description: 'Болеет((',
+            photo: 'https://i.pinimg.com/originals/6c/8e/56/6c8e5666bcde85152b1c73f8be8e3ef2.jpg'
+        },
+        {
+            id: 3,
+            animalType: 'Собака',
+            urgency: 'Шарик',
+            bloodType: 'A+',
+            organization: 'Вет Гуффи',
+            address: ' ул. Карла Маркса, 316, Ижевск',
+            workingHours: '9:00 - 18:00',
+            description: 'Болеет((',
+            photo: 'https://i.pinimg.com/originals/6c/8e/56/6c8e5666bcde85152b1c73f8be8e3ef2.jpg'
+        },
     ]);
 
     const filteredAnnouncements = announcements.filter(announcement => {

@@ -76,7 +76,7 @@ const AnnouncementDetails: React.FC = () => {
                 <Typography variant="body1">{announcement.description}</Typography>
             </Box>
             <Box className={styles.centerButton}>
-                <Button variant="contained" color="primary" onClick={handleClickOpen}>
+                <Button className={styles.button} onClick={handleClickOpen}>
                     Помочь
                 </Button>
             </Box>
@@ -86,7 +86,7 @@ const AnnouncementDetails: React.FC = () => {
                     <Typography>Ждем вас</Typography>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} color="primary">
+                    <Button onClick={handleClose}>
                         Закрыть
                     </Button>
                 </DialogActions>
