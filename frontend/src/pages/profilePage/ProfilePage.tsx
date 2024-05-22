@@ -52,6 +52,7 @@ function ProfilePage() {
             setLocalities(result);
             console.log(localities);
         }
+        
         const getUserData = async() => {
                 const response = await fetch(`http://localhost:8080/api/user/${userID}`, {
                     method: 'GET',
@@ -106,7 +107,8 @@ function ProfilePage() {
         setSelectedLocality(Number(event.target.value));
     }
 
-    const updateUser = async() => {
+    const updateUser = async(event: React.FormEvent<HTMLFormElement>) => {
+        const form = event.currentTarget;
         const email = emailField.value;
         const phone = (phoneField.value.length > 0 ? phoneField.value : null);
         const tg_nickname = (tgNicknameField.value.length > 0 ? tgNicknameField.value : null);
@@ -123,8 +125,9 @@ function ProfilePage() {
             patronymic: patronymic,
             locality_id: locality_id
         };
+        event.preventDefault();
 
-        if(email.length > 0) {
+        if(form.checkValidity() === true) {
             try {
                 const response = await fetch(`http://localhost:8080/api/user/${userID}`, {
                     method: 'PUT',
@@ -143,9 +146,6 @@ function ProfilePage() {
                 console.log(e);
             }
         }
-        else {
-            errorDiv.hidden = false;
-        }
     }
 
     return (
@@ -153,19 +153,19 @@ function ProfilePage() {
             <div className={styles.content}>
                 <Header/>
                 <h1>Профиль</h1>
-                <form>
+                <form onSubmit={updateUser}>
                     <div className={styles.info}>
                         <label>
                             Почта
-                            <input id="email" type="text" defaultValue={userData?.email ?? ''}disabled/>
+                            <input id="email" type="email" defaultValue={userData?.email ?? ''}disabled required/>
                         </label>
                         <label>
-                            Телефон
-                            <input id="phone" type="tel" defaultValue={userData?.phone ?? ''}disabled/>
+                            Телефон (без кода страны)
+                            <input className={styles.phone} id="phone" type="tel" defaultValue={userData?.phone ?? ''} pattern="[0-9]{10}" disabled/>
                         </label>
                         <label>
                             Ник в Telegram
-                            <input id="tg_nickname" type="text" defaultValue={userData?.tg_nickname ?? ''}disabled/>
+                            <input id="tg_nickname" type="text" defaultValue={userData?.tg_nickname ?? ''} placeholder="@" disabled/>
                         </label>
                     </div>
                     <div className={styles.info}>
@@ -193,12 +193,12 @@ function ProfilePage() {
                             </select>
                         </label>
                     </div>
-                    <div id="error" className={styles.error} hidden>Поля заполнены неверно</div>
+                    <div id="error" className={styles.error} hidden>Такая почта уже существует</div>
                     <div id="editButton">
                         <button className={styles.editButton} type="button" onClick={() => editParams()}>Редактировать</button>
                     </div>
                     <div id="saveAndCancelButton" hidden>
-                        <button className={styles.editButton} type="button" onClick={updateUser}>Сохранить</button>
+                        <button className={styles.editButton} type="submit">Сохранить</button>
                         <button className={styles.editButton} type="reset" onClick={() => cancelUpdate()}>Отмена</button>
                     </div>
                     <div>
