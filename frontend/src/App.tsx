@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AnnouncePage from "pages/announcePage/AnnouncePage";
 import StartPage from "pages/startPage/StartPage";
 import AnnouncementDetails from "pages/announcementDetails/AnnouncementDetails";
+import ProfilePage from "pages/profilePage/ProfilePage";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <Route path="/start" element={<StartPage />} />
           <Route path="/announcements" element={<AnnouncePage />} />
           <Route path="/announcement/:id" element={<AnnouncementDetails />} />
-
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </BrowserRouter>
     </div>
