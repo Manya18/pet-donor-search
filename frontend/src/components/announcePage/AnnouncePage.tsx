@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Grid } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import Filter from './components/Filter';
@@ -7,65 +7,64 @@ import AnimalCard from './components/Card';
 
 interface Announcement {
     id: number;
-    animalType: string;
-    urgency: string;
-    bloodType: string;
+    animaltype: string;
+    urgency: boolean;
+    bloodtype: string;
     organization: string;
     address: string;
     workingHours: string;
     description: string;
     photo: string;
+    petname: string;
 }
 
 const AnnouncePage: React.FC = () => {
     const navigate = useNavigate();
-    const [filters, setFilters] = useState<{ animalType: string; urgency: string }>({ animalType: '', urgency: '' });
-    const [announcements] = useState<Announcement[]>([
-        {
-            id: 1,
-            animalType: 'Собака',
-            urgency: 'Шарик',
-            bloodType: 'A+',
-            organization: 'Вет Гуффи',
-            address: ' ул. Карла Маркса, 316, Ижевск',
-            workingHours: '9:00 - 18:00',
-            description: 'Болеет((',
-            photo: 'https://i.pinimg.com/originals/6c/8e/56/6c8e5666bcde85152b1c73f8be8e3ef2.jpg'
-        },
-        {
-            id: 2,
-            animalType: 'Собака',
-            urgency: 'Шарик',
-            bloodType: 'A+',
-            organization: 'Вет Гуффи',
-            address: ' ул. Карла Маркса, 316, Ижевск',
-            workingHours: '9:00 - 18:00',
-            description: 'Болеет((',
-            photo: 'https://i.pinimg.com/originals/6c/8e/56/6c8e5666bcde85152b1c73f8be8e3ef2.jpg'
-        },
-        {
-            id: 3,
-            animalType: 'Собака',
-            urgency: 'Шарик',
-            bloodType: 'A+',
-            organization: 'Вет Гуффи',
-            address: ' ул. Карла Маркса, 316, Ижевск',
-            workingHours: '9:00 - 18:00',
-            description: 'Болеет((',
-            photo: 'https://i.pinimg.com/originals/6c/8e/56/6c8e5666bcde85152b1c73f8be8e3ef2.jpg'
-        },
-    ]);
+    const [filters, setFilters] = useState<{ animaltype: string; urgency: string }>({ animaltype: '', urgency: '' });
+    const [announcements, setAnnouncements] = useState<Announcement[]>([]);
 
-    const filteredAnnouncements = announcements.filter(announcement => {
-        return (
-            (!filters.animalType || announcement.animalType === filters.animalType) &&
-            (!filters.urgency || announcement.urgency === filters.urgency)
-        );
-    });
+    useEffect(() => {
+        getAnnouncements();
+    }, [filters]);
+
+    const getAnnouncements = async () => {
+        let url = 'http://localhost:8080/api/announce/';
+        if (filters.urgency === 'true') {
+            url = 'http://localhost:8080/api/urgency';
+        }
+
+        try {
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                console.error('Ошибка при получении данных');
+                return;
+            }
+
+            const result = await response.json();
+            const announcementsArray = Array.isArray(result) ? result : [result];
+            setAnnouncements(announcementsArray);
+
+        } catch (error) {
+            console.error('Ошибка при выполнении запроса:', error);
+        }
+    };
 
     const handleCardClick = (id: number) => {
         navigate(`/announcement/${id}`);
     };
+
+    const filteredAnnouncements = announcements.filter(announcement => {
+        return (
+            (!filters.animaltype || announcement.animaltype === filters.animaltype) &&
+            (!filters.urgency || announcement.urgency.toString() === filters.urgency)
+        );
+    });
 
     return (
         <Container>
