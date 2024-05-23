@@ -2,8 +2,9 @@ export type EventType = {
     id: number,
     admin_id: number,
     org_id: number,
-    event_title: string,
+    title: string,
     event_date: string,
-    event_address: string,
-    event_goal: string,
+    address: string,
+    goal: string,
+    organisation_name: string,
 }

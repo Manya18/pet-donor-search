@@ -1,9 +1,8 @@
-import logo from "../../../../images/logo.png";
 import { AdviceType } from "../../../../types/AdviceType";
 import styles from "./advice.module.css";
+import FaceIcon from "@mui/icons-material/Face";
 
 const Advice = ({ props }: { props: AdviceType }) => {
-
   if (!props.admin_accept) return null;
 
   const date = new Date(props.advice_date);
@@ -11,9 +10,11 @@ const Advice = ({ props }: { props: AdviceType }) => {
   return (
     <div key={props.id} className={styles.advice}>
       <div className={styles.advice__head}>
-        <img className={styles.author__img} src={logo} alt="avatar" />
+        <FaceIcon sx={{ fontSize: 50 }} />
         <div className={styles.advice__author}>
-          <div className={styles.author__name}>{props.user_name + " " + props.user_surname}</div>
+          <div className={styles.author__name}>
+            {props.user_name + " " + props.user_surname}
+          </div>
           <div className={styles.advice__date}>{date.toLocaleDateString()}</div>
         </div>
       </div>

@@ -2,7 +2,10 @@ import styles from "./newsCard.module.css";
 import newsImg from "../../../images/newsImg.jpg";
 import { NewsType } from "../../../types/NewsType";
 
-const NewsCard = (props: NewsType) => {
+const NewsCard = ({ props }: { props: NewsType }) => {
+
+  const date = new Date(props.post_date);
+
   return (
     <div key={props.id} className={styles.newsCard}>
       <div className={styles.img__wrapper}>
@@ -10,7 +13,7 @@ const NewsCard = (props: NewsType) => {
       </div>
       <div className={styles.news__text__wrapper}>
         <div className={styles.news__title}>{props.post_name}</div>
-        <div className={styles.news__date}>{props.post_date}</div>
+        <div className={styles.news__date}>{date.toLocaleDateString()}</div>
         <div className={styles.news__text}>{props.post_text}</div>
       </div>
     </div>

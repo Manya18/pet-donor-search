@@ -1,6 +1,7 @@
 import AdviceSlider from "./components/AdviceSliderAPI/AdviceSliderAPI";
 import EventSliderAPI from "./components/EventSliderAPI/EventSliderAPI";
 import NewSlider from "./components/NewSliderAPI/NewSliderAPI";
+import MapOfClinics from "./components/mapOfClinics/MapOfClinics";
 import styles from "./homePage.module.css";
 
 const HomePage = () => {
@@ -12,6 +13,7 @@ const HomePage = () => {
         <AdviceSlider />
         <NewSlider />
         <EventSliderAPI />
+        <MapOfClinics />
       </div>
     </div>
   );

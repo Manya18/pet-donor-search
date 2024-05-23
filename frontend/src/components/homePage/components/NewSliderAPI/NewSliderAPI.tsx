@@ -1,60 +1,43 @@
 import SliderForThree from "../../../layouts/sliderForThree/SliderForThree";
-import { SliderType } from "../../../../types/sliderType";
 import NewsCard from "../../../common/newsCard/NewsCard";
+import { NewsType } from "../../../../types/NewsType";
+import { useState, useEffect } from "react";
+import { fetchPosts } from "../../../../utils/postApi";
 
 const NewSlider = () => {
-  const data = [
-    {
-      id: 0,
-      admin_id: 0,
-      org_id: 0,
-      post_img: "",
-      post_date: "25.04.2024",
-      post_name: "Title",
-      post_text:
-        "NewSNewSNewSNewS NewSNewSNewSNewS NeNewSNewSNewSNewS NewSNewSNewSewSNewSNewS NewSNewSNewSNewS NwSNewSNewSNewSNewS NewSNewSNewSNewS",
-    },
-    {
-      id: 0,
-      admin_id: 0,
-      org_id: 0,
-      post_img: "",
-      post_date: "25.04.2024",
-      post_name: "Title",
-      post_text:
-        "NewSNewSNewSNewS NewSNewSNewSNewS NeNewSNewSNewSNewS NewSNewSNewSewSNewSNewS NewSNewSNewSNewS NwSNewSNewSNewSNewS NewSNewSNewSNewS",
-    },
-    {
-      id: 0,
-      admin_id: 0,
-      org_id: 0,
-      post_img: "",
-      post_date: "25.04.2024",
-      post_name: "Title",
-      post_text:
-        "NewSNewSNewSNewS NewSNewSNewSNewS NeNewSNewSNewSNewS NewSNewSNewSewSNewSNewS NewSNewSNewSNewS NwSNewSNewSNewSNewS NewSNewSNewSNewS",
-    },
-    {
-      id: 0,
-      admin_id: 0,
-      org_id: 0,
-      post_img: "",
-      post_date: "25.04.2024",
-      post_name: "Title",
-      post_text:
-        "NewSNewSNewSNewS NewSNewSNewSNewS NeNewSNewSNewSNewS NewSNewSNewSewSNewSNewS NewSNewSNewSNewS NwSNewSNewSNewSNewS NewSNewSNewSNewS",
-    },
-  ];
+  const [data, setData] = useState<NewsType[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<null | string>(null);
 
-  const items = data.map((news) => <NewsCard key={news.id} {...news} />);
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await fetchPosts();
+        setData(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching Posts:", error);
+        setError("Ошибка при загрузке советов");
+        setIsLoading(false);
+      }
+    };
+
+    getData();
+  }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  const items = data.map((news) => <NewsCard key={news.id} props={news} />);
   const title = "Новости из мира донорства";
+  const section = "new";
 
-  const dataToProvide: SliderType = {
-    elems: items,
-    title: title,
-  };
-
-  return <SliderForThree {...dataToProvide} />;
+  return <SliderForThree elems={items} title={title} sectionName={section} />;
 };
 
 export default NewSlider;

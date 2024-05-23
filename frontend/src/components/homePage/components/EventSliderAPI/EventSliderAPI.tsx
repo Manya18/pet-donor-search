@@ -1,56 +1,44 @@
 import SliderForThree from "../../../layouts/sliderForThree/SliderForThree";
-import { SliderType } from "../../../../types/sliderType";
 import EventCard from "../../../common/eventCard/EventCard";
+import { useState, useEffect } from "react";
+import { EventType } from "../../../../types/EventType";
+import { fetchEvents } from "../../../../utils/eventApi";
 
 const EventSliderAPI = () => {
-  const data = [
-    {
-      id: 0,
-      admin_id: 0,
-      org_id: 0,
-      event_title: "Title Title",
-      event_date: "14.14.2114",
-      event_address: "ул. Рокоссовского, д. 24",
-      event_goal: "Description description description description",
-    },
-    {
-      id: 0,
-      admin_id: 0,
-      org_id: 0,
-      event_title: "Title Title",
-      event_date: "14.14.2114",
-      event_address: "ул. Рокоссовского, д. 24",
-      event_goal: "Description description description description",
-    },
-    {
-      id: 0,
-      admin_id: 0,
-      org_id: 0,
-      event_title: "Title Title",
-      event_date: "14.14.2114",
-      event_address: "ул. Рокоссовского, д. 24",
-      event_goal: "Description description description description",
-    },
-    {
-      id: 0,
-      admin_id: 0,
-      org_id: 0,
-      event_title: "Title Title",
-      event_date: "14.14.2114",
-      event_address: "ул. Рокоссовского, д. 24",
-      event_goal: "Description description description description",
-    },
-  ];
+  const [data, setData] = useState<EventType[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<null | string>(null);
 
-  const items = data.map((news) => <EventCard key={news.id} {...news} />);
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await fetchEvents();
+        console.log(response.data)
+        setData(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching Events:", error);
+        setError("Ошибка при загрузке Events");
+        setIsLoading(false);
+      }
+    };
+
+    getData();
+  }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  const items = data.map((event) => <EventCard key={event.id} props={event} />);
   const title = "Мероприятия";
+  const section="event"
 
-  const dataToProvide: SliderType = {
-    elems: items,
-    title: title,
-  };
-
-  return <SliderForThree {...dataToProvide} />;
+  return <SliderForThree elems={items} title={title} sectionName={section}/>;
 };
 
 export default EventSliderAPI;

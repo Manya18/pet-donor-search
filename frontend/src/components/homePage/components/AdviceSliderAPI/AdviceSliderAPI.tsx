@@ -9,8 +9,6 @@ const AdviceSlider = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<null | string>(null);
 
-  const title = "Советы от доноров";
-
   useEffect(() => {
     const getData = async () => {
       try {
@@ -36,8 +34,10 @@ const AdviceSlider = () => {
   }
 
   const items = data.map((advice) => <Advice key={advice.id} props={advice} />);
+  const title = "Советы от доноров";
+  const section = "advice";
 
-  return <SliderForThree elems={items} title={title} />;
+  return <SliderForThree elems={items} title={title} sectionName={section}/>;
 };
 
 export default AdviceSlider;
