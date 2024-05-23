@@ -2,17 +2,19 @@ import logo from "../../../../images/logo.png";
 import { AdviceType } from "../../../../types/AdviceType";
 import styles from "./advice.module.css";
 
-const Advice = (props: AdviceType) => {
+const Advice = ({ props }: { props: AdviceType }) => {
 
-  if (!props.admin_accept) return <></>;
-  
+  if (!props.admin_accept) return null;
+
+  const date = new Date(props.advice_date);
+
   return (
     <div key={props.id} className={styles.advice}>
       <div className={styles.advice__head}>
         <img className={styles.author__img} src={logo} alt="avatar" />
         <div className={styles.advice__author}>
-          <div className={styles.author__name}>{props.user_id}</div>
-          <div className={styles.advice__date}>{props.advice_date}</div>
+          <div className={styles.author__name}>{props.user_name + " " + props.user_surname}</div>
+          <div className={styles.advice__date}>{date.toLocaleDateString()}</div>
         </div>
       </div>
       <div className={styles.advice__text}>{props.advice_text}</div>

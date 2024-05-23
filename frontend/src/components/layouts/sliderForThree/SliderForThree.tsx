@@ -4,7 +4,9 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from "./sliderForThree.module.css";
 import { SliderType } from "../../../types/sliderType";
 
-const SliderForThree = (props: SliderType) => {
+const SliderForThree = ({ elems, title }: SliderType) => {
+
+  console.log(elems, title)
   const settings = {
     dots: true,
     infinite: true,
@@ -33,11 +35,12 @@ const SliderForThree = (props: SliderType) => {
       },
     ],
   };
+  
   return (
     <div className={styles.slider_wrapper}>
-      <h1 className={styles.slider__header}>{props.title}</h1>
+      <h1 className={styles.slider__header}>{title}</h1>
       <Slider {...settings}>
-        {props.elems.map((elem, index) => (
+        {elems.map((elem, index) => (
           <div key={index} className={styles.slide}>
             {elem}
           </div>

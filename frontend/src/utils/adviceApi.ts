@@ -5,9 +5,9 @@ const instance = axios.create({
   timeout: 10000,
 });
 
-export const fetchAdvises = () => {
+export const fetchAdvices = () => {
     console.log('ei')
-    return instance.get('/advise');
+    return instance.get('/Advice');
   };
 
 // export const postSomeData = (data) => {
