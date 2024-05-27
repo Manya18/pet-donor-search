@@ -1,5 +1,7 @@
 export type SliderType = {
-    elems: JSX.Element[],
-    title: string,
-    sectionName: string
-}
+  elems: JSX.Element[];
+  title: string;
+  sectionName: string;
+  buttonText?: string;
+  modalContent?: JSX.Element;
+};

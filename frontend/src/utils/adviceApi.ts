@@ -9,6 +9,10 @@ export const fetchAdvices = () => {
   return instance.get("/Advice");
 };
 
-// export const postSomeData = (data) => {
-//   return instance.post('/some-endpoint', data);
-// };
+export const postAdviceData = (data: any) => {
+  return instance.post("/createAdvice", data);
+};
+
+export const deleteAdvice = (data: any) => {
+  return instance.delete(`/deleteAdvice/${data.id}`, data);
+};

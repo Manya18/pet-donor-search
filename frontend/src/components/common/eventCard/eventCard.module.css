@@ -1,8 +1,10 @@
 * {
-    color: var(--darkTextColor);
+  color: var(--darkTextColor);
 }
 
 .event__card {
+  display: flex;
+  flex-direction: column;
   max-width: 400px;
   background-color: #fff;
   border-radius: 20px;
@@ -69,10 +71,18 @@
   font-family: var(--primaryFont);
   font-size: 22px;
   width: 100%;
-  background-color: red;
+  background-color: var(--primaryTextColor);
   color: white;
   border: none;
   border-radius: 20px;
   padding: 10px;
   margin-top: 15px;
+}
+
+.delete__button {
+  background-color: unset;
+  border: none;
+  cursor: pointer;
+  align-self: flex-end;
+  margin: 10px 10px 0 10px;
 }

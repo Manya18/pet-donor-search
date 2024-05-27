@@ -9,6 +9,10 @@ export const fetchPosts = () => {
   return instance.get("/post");
 };
 
-// export const postSomeData = (data) => {
-//   return instance.post('/some-endpoint', data);
-// };
+export const postNewsData = (data: any) => {
+  return instance.post("/createPost", data);
+};
+
+export const deleteNews = (data: any) => {
+  return instance.delete(`/deletePost/${data.id}`, data);
+};

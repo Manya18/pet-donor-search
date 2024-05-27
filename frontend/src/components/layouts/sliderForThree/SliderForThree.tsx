@@ -3,9 +3,26 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./sliderForThree.module.css";
 import { SliderType } from "../../../types/sliderType";
+import { useState } from "react";
+import Modal from "react-modal";
 
-const SliderForThree = ({ elems, title, sectionName }: SliderType) => {
-  console.log(elems, title);
+const SliderForThree = ({
+  elems,
+  title,
+  sectionName,
+  buttonText,
+  modalContent,
+}: SliderType) => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   const settings = {
     dots: true,
     infinite: true,
@@ -37,9 +54,14 @@ const SliderForThree = ({ elems, title, sectionName }: SliderType) => {
 
   return (
     <div className={styles.slider_wrapper}>
-      <h1 id={sectionName} className={styles.slider__header}>
-        {title}
-      </h1>
+      <div className={styles.slider__header}>
+        <h1 id={sectionName} className={styles.slider__title}>
+          {title}
+        </h1>
+        <button className={styles.create__button} onClick={() => openModal()}>
+          {buttonText}
+        </button>
+      </div>
       <Slider {...settings}>
         {elems.map((elem, index) => (
           <div key={index} className={styles.slide}>
@@ -47,6 +69,15 @@ const SliderForThree = ({ elems, title, sectionName }: SliderType) => {
           </div>
         ))}
       </Slider>
+      <Modal
+        style={{
+          content: { width: "500px", marginLeft: "auto", marginRight: "auto" },
+        }}
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+      >
+        {modalContent}
+      </Modal>
     </div>
   );
 };

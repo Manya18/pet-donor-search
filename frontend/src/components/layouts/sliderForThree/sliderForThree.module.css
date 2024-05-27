@@ -1,10 +1,25 @@
 .slider_wrapper {
-    padding: 60px 0;
+  padding: 60px 0;
+}
+
+.slider__title {
+  font-family: var(--secondaryFont);
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--primaryTextColor);
 }
 
 .slider__header {
-    font-family: var(--secondaryFont);
-    font-size: 36px;
-    font-weight: bold;
-    color: var(--primaryTextColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.create__button {
+  font-size: 16px;
+  background-color: var(--primaryTextColor);
+  color: white;
+  padding: 7px;
+  border: none;
+  border-radius: 10px;
 }

@@ -1,41 +1,51 @@
 .newsCard {
-    max-width: 400px;
-    background-color: #fff;
-    border-radius: 20px;
-    margin: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  background-color: #fff;
+  border-radius: 20px;
+  margin: 20px;
 }
 
 .img__wrapper {
-    display: inline;
+  display: inline;
 }
 
 .news__img {
-    width: 100%;
-    border-radius: 20px 20px 0 0;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
 }
 
 .news__text__wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px;
 }
 
 .news__title {
-    font-size: 25px;
-    font-weight: 500;
-    font-family: var(--primaryFont);
-    color: var(--darkTextColor);
+  font-size: 25px;
+  font-weight: 500;
+  font-family: var(--primaryFont);
+  color: var(--darkTextColor);
 }
 
 .news__date {
-    font-family: var(--primaryFont);
-    font-size: 13px;
-    color: var(--darkTextColor);
+  font-family: var(--primaryFont);
+  font-size: 13px;
+  color: var(--darkTextColor);
 }
 
 .news__text {
-    font-family: var(--secondaryFont);
-    font-size: 16px;
-    color: var(--darkTextColor);
+  font-family: var(--secondaryFont);
+  font-size: 16px;
+  color: var(--darkTextColor);
+}
+
+.delete__button {
+  background-color: unset;
+  border: none;
+  cursor: pointer;
+  align-self: flex-end;
+  margin: 0px 10px 10px;
 }
