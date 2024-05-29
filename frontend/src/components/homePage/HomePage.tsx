@@ -1,4 +1,5 @@
 import AdviceSlider from "./components/AdviceSliderAPI/AdviceSliderAPI";
+import AnnounceSlider from "./components/AnnounceSliderAPI/AnnounceSliderAPI";
 import EventSliderAPI from "./components/EventSliderAPI/EventSliderAPI";
 import NewSlider from "./components/NewSliderAPI/NewSliderAPI";
 import MapOfClinics from "./components/mapOfClinics/MapOfClinics";
@@ -10,6 +11,7 @@ const HomePage = () => {
   return (
     <div className={styles.homePage}>
       <div className={styles.homePage__content}>
+        <AnnounceSlider />
         <AdviceSlider />
         <NewSlider />
         <EventSliderAPI />

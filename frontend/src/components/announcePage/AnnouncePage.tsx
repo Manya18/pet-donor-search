@@ -3,57 +3,29 @@ import { Container, Grid } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import Filter from './components/Filter';
 import Map from './components/Map';
-import AnimalCard from './components/Card';
-
-interface Announcement {
-    id: number;
-    animaltype: string;
-    urgency: boolean;
-    bloodtype: string;
-    organization: string;
-    address: string;
-    workingHours: string;
-    description: string;
-    photo: string;
-    petname: string;
-}
+import AnimalCard from './components/animalCard/AnimalCard';
+import { fetchAnnounce, fetchUrgency } from 'utils/announceApi';
+import { AnnounceType } from '../../types/AnnounceType';
 
 const AnnouncePage: React.FC = () => {
     const navigate = useNavigate();
     const [filters, setFilters] = useState<{ animaltype: string; urgency: string }>({ animaltype: '', urgency: '' });
-    const [announcements, setAnnouncements] = useState<Announcement[]>([]);
+    const [announcements, setAnnouncements] = useState<AnnounceType[]>([]);
 
     useEffect(() => {
-        getAnnouncements();
-    }, [filters]);
-
-    const getAnnouncements = async () => {
-        let url = 'http://localhost:8080/api/announce/';
-        if (filters.urgency === 'true') {
-            url = 'http://localhost:8080/api/urgency';
-        }
-
-        try {
-            const response = await fetch(url, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-
-            if (!response.ok) {
-                console.error('Ошибка при получении данных');
-                return;
+        const getData = async () => {
+            try {
+                let response = await fetchAnnounce();
+                if (filters.urgency === 'true') response = await fetchUrgency();
+                const announcementsArray = Array.isArray(response.data) ? response.data : [response.data];
+                setAnnouncements(announcementsArray);
+            } catch (error) {
+                console.error("Error fetching Advices:", error);
             }
+        };
 
-            const result = await response.json();
-            const announcementsArray = Array.isArray(result) ? result : [result];
-            setAnnouncements(announcementsArray);
-
-        } catch (error) {
-            console.error('Ошибка при выполнении запроса:', error);
-        }
-    };
+        getData();
+    }, [filters]);
 
     const handleCardClick = (id: number) => {
         navigate(`/announcement/${id}`);

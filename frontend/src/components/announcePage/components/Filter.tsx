@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { fetchAnimalTypes } from 'utils/announceApi';
 
 interface FilterProps {
     filters: { animaltype: string; urgency: string };
@@ -10,19 +11,18 @@ const Filter: React.FC<FilterProps> = ({ filters, setFilters }) => {
     const [animalTypes, setAnimalTypes] = useState<string[]>([]);
 
     useEffect(() => {
-        fetchAnimalTypes();
-    }, []);
+        const getData = async () => {
+            try {
+                const response = await fetchAnimalTypes();
+                const animalTypeNames = response.data.map((animalType: { id: number; pet_name: string }) => animalType.pet_name);
+                setAnimalTypes(animalTypeNames);
+            } catch (error) {
+                console.error('Ошибка при загрузке типов животных:', error);
+            }
+        };
 
-    const fetchAnimalTypes = async () => {
-        try {
-            const response = await fetch('http://localhost:8080/api/animaltypes');
-            const data = await response.json();
-            const animalTypeNames = data.map((animalType: { id: number; pet_name: string }) => animalType.pet_name);
-            setAnimalTypes(animalTypeNames);
-        } catch (error) {
-            console.error('Ошибка при загрузке типов животных:', error);
-        }
-    };
+        getData();
+    }, []);
 
     const handleAnimalTypeChange = (event: any) => {
         setFilters({ ...filters, animaltype: event.target.value as string });

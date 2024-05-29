@@ -1,0 +1,88 @@
+.slider_wrapper {
+    padding: 60px 0;
+}
+
+.slider__title {
+    font-family: var(--secondaryFont);
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--primaryTextColor);
+}
+
+.slider__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.view_all_link {
+    font-size: 18px;
+    color: var(--primaryTextColor);
+    padding: 7px;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    text-decoration: underline;
+
+}
+
+.cards_container {
+    display: flex;
+    gap: 1vw;
+}
+
+.add_announce_button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.add_announce_link {
+    font-size: 16px;
+    background-color: var(--primaryTextColor);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modalContent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modalTitle {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.modalLabel {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.modalCheckboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.modalCheckbox {
+    accent-color: var(--primaryTextColor);
+}
+
+.createButton {
+    margin: 20px auto 0;
+    max-width: 100px;
+    font-size: 17px;
+    background-color: var(--darkTextColor);
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}

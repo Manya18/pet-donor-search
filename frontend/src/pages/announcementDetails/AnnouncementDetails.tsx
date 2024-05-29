@@ -1,10 +1,9 @@
-
 import styles from "./AnnouncementDetails.module.css"
 import Header from "components/common/header/Header";
-import Announce from "components/announcePage/components/AnnouncementDetails";
+import Announce from "components/announcePage/components/announcement/AnnouncementId";
 import Footer from "components/common/footer/Footer";
 
-const AnnouncementDetails = () => {
+const AnnouncementId = () => {
     return (
         <div className={styles.AnnouncementDetails}>
             <div className={styles.content}>
@@ -16,7 +15,7 @@ const AnnouncementDetails = () => {
     );
 };
 
-export default AnnouncementDetails;
+export default AnnouncementId;
 
 
 

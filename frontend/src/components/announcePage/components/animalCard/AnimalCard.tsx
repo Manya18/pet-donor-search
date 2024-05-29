@@ -1,28 +1,27 @@
 import React from 'react';
 import { Card, CardContent, Typography, CardMedia } from '@mui/material';
-
-interface Announcement {
-    id: number;
-    animaltype: string;
-    urgency: boolean;
-    bloodtype: string;
-    organization: string;
-    address: string;
-    workingHours: string;
-    description: string;
-    photo: string;
-    petname: string;
-}
+import { AnnounceType } from '../../../../types/AnnounceType';
+import styles from './AnimalCard.module.css';
+import DeleteIcon from "@mui/icons-material/Delete";
+import { deleteAnnounce } from 'utils/announceApi';
 
 interface CardProps {
-    announcement: Announcement;
+    announcement: AnnounceType;
     onClick: () => void;
+    size?: 'small' | 'large';
 }
 
-const AnimalCard: React.FC<CardProps> = ({ announcement, onClick }) => {
+const AnimalCard: React.FC<CardProps> = ({ announcement, onClick, size = 'small' }) => {
+    const cardClass = size === 'large' ? styles.cardLarge : styles.cardSmall;
+
+    const deleteAnnounceFunc = () => {
+        deleteAnnounce(announcement.id);
+        window.location.reload();
+    };
+
     return (
-        <div style={{ marginBottom: '3vh', marginTop: '3vh', marginLeft: '1vw' }}>
-            <Card onClick={onClick} style={{ cursor: 'pointer', width: '17vw', position: 'relative' }}>
+        <div className={styles.cardContainer}>
+            <Card onClick={onClick} className={cardClass}>
                 <CardMedia
                     component="img"
                     height="150"
@@ -31,15 +30,7 @@ const AnimalCard: React.FC<CardProps> = ({ announcement, onClick }) => {
                     alt={announcement.petname}
                 />
                 {announcement.urgency && (
-                    <div style={{
-                        position: 'absolute',
-                        top: '10px',
-                        right: '10px',
-                        backgroundColor: 'red',
-                        color: 'white',
-                        padding: '5px',
-                        borderRadius: '5px'
-                    }}>
+                    <div className={styles.urgencyBadge}>
                         Срочно
                     </div>
                 )}
@@ -56,6 +47,16 @@ const AnimalCard: React.FC<CardProps> = ({ announcement, onClick }) => {
                     <Typography variant="body2" color="text.secondary">
                         Организация: {announcement.organization}
                     </Typography>
+                    <button
+                        className={styles.delete__button}
+                        onClick={(e) => {
+                            e.stopPropagation(); 
+                            deleteAnnounceFunc();
+                        }}
+                        title="Удалить объявление"
+                    >
+                        <DeleteIcon />
+                    </button>
                 </CardContent>
             </Card>
         </div>
