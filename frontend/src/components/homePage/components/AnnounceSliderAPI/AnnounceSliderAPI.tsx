@@ -165,15 +165,16 @@ const AnnounceSlider = () => {
                         onChange={(e) => setAnnounceText(e.target.value)}
                     />
                 </label>
-                <label className={styles.modalCheckboxLabel}>
-                    Срочно
+                <div style={{ display: "flex", marginLeft: 'auto', marginRight: 'auto' }}>
                     <input
                         type="checkbox"
                         checked={isUrgent}
                         onChange={(e) => setIsUrgent(e.target.checked)}
                         className={styles.modalCheckbox}
                     />
-                </label>
+                    <label className={styles.modalCheckboxLabel}>Срочно</label>
+
+                </div>
                 <button
                     className={styles.createButton}
                     onClick={createAnnounce}
@@ -201,7 +202,7 @@ const AnnounceSlider = () => {
             </div>
             <Modal
                 style={{
-                    content: { width: "500px", marginLeft: "auto", marginRight: "auto" },
+                    content: { width: "500px", marginLeft: "auto", marginRight: "auto", overflow: "hidden" },
                 }}
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}

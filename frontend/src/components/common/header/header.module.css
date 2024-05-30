@@ -1,6 +1,6 @@
 .header {
-    padding: 10px;
-    box-sizing: border-box;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .header__content {
@@ -9,14 +9,14 @@
   align-items: center;
 }
 
-.header__profile {
-}
+.header__profile {}
 
 .header__profile__button {
   border: none;
+  background-color: inherit;
 }
 
 .hr {
-    opacity: 0.5;
-    border: 1px solid var(--primaryTextColor);
+  opacity: 0.5;
+  border: 1px solid var(--primaryTextColor);
 }

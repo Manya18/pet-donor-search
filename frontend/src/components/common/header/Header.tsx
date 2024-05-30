@@ -2,11 +2,12 @@ import Logo from "../logo/Logo";
 import profile from "../../../images/profile.png";
 import styles from "./header.module.css";
 import Menu from "../menu/Menu";
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 const Header = () => {
   const userID = sessionStorage.getItem('userID');
   let isSession = true;
-  if(userID === null) isSession = false;
+  if (userID === null) isSession = false;
   return (
     <header className={styles.header}>
       <div className={styles.header__content}>
@@ -16,11 +17,11 @@ const Header = () => {
           <button className={styles.header__profile__button}>
             {isSession ? (
               <a href="/profile">
-                <img src={profile} alt="profile"></img>
+                <AccountCircleOutlinedIcon />
               </a>
             ) : (
               <a href="/start">
-                <img src={profile} alt="profile"></img>
+                <AccountCircleOutlinedIcon sx={{ fontSize: "4vw", fill: '#9D0B0B' }} />
               </a>
             )}
           </button>

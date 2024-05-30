@@ -93,9 +93,6 @@ const AnnouncementId: React.FC = () => {
             <Dialog open={open} onClose={handleClose}>
                 <div className={styles.modal_content}>
                     <h3 className={styles.modal_title}>Ждем вас!</h3>
-                    <button className={styles.close} onClick={handleClose}>
-                        X
-                    </button>
                 </div>
             </Dialog>
         </div>
