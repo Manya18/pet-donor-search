@@ -17,7 +17,7 @@ const Header = () => {
           <button className={styles.header__profile__button}>
             {isSession ? (
               <a href="/profile">
-                <AccountCircleOutlinedIcon />
+                <AccountCircleOutlinedIcon sx={{ fontSize: "4vw", fill: '#9D0B0B' }} />
               </a>
             ) : (
               <a href="/start">

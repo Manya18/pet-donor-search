@@ -38,7 +38,7 @@ const EventSliderAPI = () => {
       org_id: 2,
       title: eventTitle,
     };
-    console.log(eventData);
+
     postEventData(eventData)
       .then((res) => {
         console.log("Мероприятие успешно создано:", res.data);

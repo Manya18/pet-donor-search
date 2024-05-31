@@ -143,8 +143,9 @@ const AnnounceSlider = () => {
                     />
                 </label>
                 <label>
-                    Тип крови
+                    Группа крови
                     <select value={selectedBloodType} onChange={(e) => setSelectedBloodType(e.target.value)}>
+                    <option value="">Выберите группу крови</option>
                         {bloodTypes.map((type) => (
                             <option key={type.id} value={type.id}>{type.blood_type}</option>
                         ))}
