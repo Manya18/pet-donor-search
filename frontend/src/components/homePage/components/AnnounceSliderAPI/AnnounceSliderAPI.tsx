@@ -9,6 +9,7 @@ import { AnimalType } from '../../../../types/AnimalType';
 import { BloodType } from '../../../../types/BloodType';
 
 const AnnounceSlider = () => {
+    const orgID = sessionStorage.getItem('organisationID');
     const navigate = useNavigate();
 
     const [data, setData] = useState<AnnounceType[]>([]);
@@ -197,9 +198,13 @@ const AnnounceSlider = () => {
             <div className={styles.cards_container}>
                 {items}
             </div>
+            {orgID ? (
             <div className={styles.add_announce_button}>
                 <button className={styles.add_announce_link} onClick={() => openModal()}>Добавить объявление</button>
             </div>
+            ) : (
+                <div/>
+            )}
             <Modal
                 style={{
                     content: { width: "500px", marginLeft: "auto", marginRight: "auto", overflow: "hidden" },

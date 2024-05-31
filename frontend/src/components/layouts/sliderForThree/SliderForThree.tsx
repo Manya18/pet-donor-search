@@ -6,6 +6,9 @@ import { SliderType } from "../../../types/sliderType";
 import { useState } from "react";
 import Modal from "react-modal";
 
+const orgID = sessionStorage.getItem('organisationID');
+const userID = sessionStorage.getItem('userID');
+
 const SliderForThree = ({
   elems,
   title,
@@ -58,9 +61,13 @@ const SliderForThree = ({
         <h1 id={sectionName} className={styles.slider__title}>
           {title}
         </h1>
+        {orgID && sectionName !== 'advice' || sectionName === 'advice' && userID && !orgID ? (
         <button className={styles.create__button} onClick={() => openModal()}>
           {buttonText}
         </button>
+        ) : (
+          <div/>
+        )}
       </div>
       <Slider {...settings}>
         {elems.map((elem, index) => (
